@@ -10,3 +10,5 @@ Group Project
 - Gmail
 - Stock Ticker (Yahoo finance api)
 - Work ETA (Google maps)
+- Controlling RPi with phone (future)
+- Hangouts Messages (future)
