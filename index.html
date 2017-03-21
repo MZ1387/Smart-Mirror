@@ -8,9 +8,15 @@
 </head>
 <body>
 	<h1 id ="logCheck">Logged Out</h1>
+	 <div class="row weather-container">
+                    <div class="col-md-3 col-md-offset-2">
+                        <h1 class="current-temp">° </h1></div>
+                    <div class="col-md-3"><img class="current-tempIcon"></div>
+     </div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
-	<script src="assets/js/auth.js"></script>
+	
+
 
 	<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
 	<script>
@@ -25,5 +31,6 @@
 	  firebase.initializeApp(config);
 	  var database = firebase.database();
 	</script>
+	<script src="assets/js/weather.js"></script>
 </body>
 </html>
