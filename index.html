@@ -2,28 +2,50 @@
 <html>
 	<link rel="stylesheet" href="assets/css/reset.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 <head>
 	<title>Smart Mirror</title>
 </head>
 <body>
 	<h1 id ="logCheck">Logged Out</h1>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
-	<script src="assets/js/auth.js"></script>
+	<h1 id ="logOut">Logged Out</h1>
+
+
+	<!-- Email master container html STARTS HERE -->
+	<div class="container emails-container">
+		<div class="row email-container well">
+			<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs text-center">
+				<i class="icon ion-email hidden-xs email-icon"></i></div>
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+				<div class="row">
+					<div class="col-md-12 email-sender-container">
+						<h1 class="email-sender">Name</h1>
+					</div>
+					<div class="col-md-12 email-subject-container">
+						<h3 class="email-sender"><strong>Subject </strong></h3>
+					</div>
+					<div class="col-md-12 email-description">
+						<h3 class="email-description">Brief Description</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Email master container html ENDS HERE -->
+
 
 	<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
-	<script>
-	  // Initialize Firebase
-	  var config = {
-	    apiKey: "AIzaSyBfHKfrweucIFnkcINk2GIJfJ0mu1QgzW4",
-	    authDomain: "mirror-21f3d.firebaseapp.com",
-	    databaseURL: "https://mirror-21f3d.firebaseio.com",
-	    storageBucket: "mirror-21f3d.appspot.com",
-	    messagingSenderId: "208718761077"
-	  };
-	  firebase.initializeApp(config);
-	  var database = firebase.database();
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script async defer src="https://apis.google.com/js/api.js"
+			onload="this.onload=function(){};handleClientLoad()"
+			onreadystatechange="if (this.readyState === 'complete') this.onload()">
 	</script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/mail.js"></script>
+
 </body>
 </html>
