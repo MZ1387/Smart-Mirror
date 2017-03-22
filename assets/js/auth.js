@@ -20,10 +20,13 @@ var SCOPES = '' +
     ' https://mail.google.com/ ' +
     ' https://www.googleapis.com/auth/gmail.readonly ' +
 	' https://www.googleapis.com/auth/plus.login ' +
-        ' https://www.googleapis.com/auth/gmail.modify ' +
+    ' https://www.googleapis.com/auth/gmail.modify ' +
 	' https://www.googleapis.com/auth/calendar.readonly ' +
 	// ' https://www.googleapis.com/auth/gmail.metadata ' +
 	' https://www.googleapis.com/auth/user.addresses.read ';
+
+// Number of emails to load
+var EMAILS_TO_LOAD = 9;
 
 firebase.initializeApp(config);
 fireBaseAuth = firebase.auth();
@@ -61,7 +64,6 @@ function initClient() {
 function updateSigninStatus(isSignedIn) {
 	console.log(isSignedIn);
     if (isSignedIn) {
-
         fireBaseAuth.onAuthStateChanged(function(user) {
             if (user) {
                 $("#logCheck").html("Hello " + user.displayName);
@@ -70,22 +72,26 @@ function updateSigninStatus(isSignedIn) {
             }
         });
 
-
         /**
          * MAKE API CALLS HERE
          */
-        getIdList('me', false, 'INBOX', 10);
+        console.log("calling get emails");
+        getIdList('me', false, 'INBOX', EMAILS_TO_LOAD);
+
     } else {
-        var btn = $("<button>").text("Login");
+        var btn = $("<button>").text("Login").attr("id", "loginBtn");
         $("#logCheck").html(btn);
-        $("#logCheck").on("click", handleAuthClick);
+        $("#loginBtn").on("click", function(event){
+            event.preventDefault();
+            handleAuthClick();
+        });
     }
 }
 
 /**
  *  Sign in the user upon button click.
  */
-function handleAuthClick(event) {
+function handleAuthClick() {
     gapi.auth2.getAuthInstance().signIn();
 }
 
@@ -96,4 +102,13 @@ function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
 }
 
-$("#logOut").html($("<button>").text("Log Off")).on("click", handleSignoutClick);
+
+/**
+ * add the things you want to remove on logout
+ */
+function logOut() {
+    handleSignoutClick();
+    removeEmailsFromHTML(EMAILS_TO_LOAD);
+}
+
+$("#logOut").html($("<button>").text("Log Off")).on("click", logOut);

@@ -8,11 +8,17 @@ h1, h2, h3 {
 
 .email-container {
     background: #000;
+    height: auto;
 }
 
+.emails-container {
+    background: #fff;
+    padding: 15px;
+    height: auto;
+}
 .email-icon {
     color: #fff;
-    font-size: 100px;
+    font-size: 80px;
 }
 
 
@@ -41,4 +47,7 @@ h1, h2, h3 {
     }
 }
 
+.test-container {
+    border: 2px solid #fff;
+}
 
