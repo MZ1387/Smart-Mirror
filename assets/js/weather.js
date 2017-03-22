@@ -7,6 +7,7 @@ $(document).ready(function(){
   getCoordinates();
  timer = setInterval(function() {
     timeInSeconds--;
+    console.log(timeInSeconds);
     if (timeInSeconds < 0) {
       getCoordinates();
     }
@@ -32,7 +33,7 @@ function getCoordinates () {
       $(".current-temp").html(Math.floor(response.main.temp) + "°");
       $(".current-tempIcon").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png");
       timeInSeconds=60;
-      console.log(timeInSeconds);
+      
     });   
     });
 }
