@@ -82,7 +82,8 @@ function addEmailsToHTML(sender, sub, desc, date) {
     var descText = $('<h4>').attr({'class':'email-description'}).html(desc);
 
 
-    emailMainDiv.append(iconDiv.html(icon))
+    emailMainDiv
+//        .append(iconDiv.html(icon))
         .append(emailContentDiv
             .append(nameDiv.html(nameText))
             .append(dateDiv.html(dateText))
