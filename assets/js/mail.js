@@ -68,7 +68,7 @@ function getEmailById(emailId) {
 function addEmailsToHTML(sender, sub, desc, date) {
     sub = sub.substring(0, 50).split(" ").slice(0, -1).join(" ");
     desc = desc.substring(0, 80).split(" ").slice(0, -1).join(" ");
-    var emailMainDiv = $('<div>').attr({'class':'row email-container well'});
+    var emailMainDiv = $('<div>').attr({'class':'row email-container well email-jumbotron jumbotron'});
     var iconDiv = $('<div>').attr({'class':'col-lg-2 col-md-2 col-sm-2 hidden-xs text-center'});
     var icon = $('<i>').attr({'class':'icon ion-email hidden-xs email-icon'});
     var emailContentDiv = $('<div>').attr({'class':'col-lg-10 col-md-10 col-sm-10 col-xs-12'}).html($('<div>').attr({'class':'row'}));
@@ -90,7 +90,8 @@ function addEmailsToHTML(sender, sub, desc, date) {
             .append(descDiv.html(descText))
         );
 
-    $(".emails-container").slick('slickAdd', emailMainDiv);
+    //$(".emails-container").slick('slickAdd', emailMainDiv);
+    $(".emails-container").append(emailMainDiv);
 }
 
 function removeEmailsFromHTML(numOfEmails) {
