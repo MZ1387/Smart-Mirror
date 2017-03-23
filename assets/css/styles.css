@@ -1,0 +1,33 @@
+#currentTime {
+  font-family:'Fjalla One', sans-serif;
+  /*font-size:100px;*/
+}
+
+#weatherIcon {
+  /*height:119px;*/
+  /*font-size:115px;*/
+}
+
+.container-fluid {
+  /*margin-top:100px;*/
+}
+
+.glyphicon {
+  /*font-size:66px;*/
+  /*width:100%;*/
+  /*height:100%;*/
+}
+
+body {
+  font-family:'Press Start 2P';
+  font-size:14px;
+  line-height:1.42857143;
+  color:#fff;
+  background-color:#000;
+  background-repeat:no-repeat;
+  background-size:cover;
+  height:1920px;
+  /*width:1080px;*/
+  background-position:center right;
+}
+

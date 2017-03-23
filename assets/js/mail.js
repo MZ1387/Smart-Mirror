@@ -66,23 +66,24 @@ function getEmailById(emailId) {
  * @param date
  */
 function addEmailsToHTML(sender, sub, desc, date) {
-    sub = sub.substring(0, 80).split(" ").slice(0, -1).join(" ");
-    desc = desc.substring(0, 150).split(" ").slice(0, -1).join(" ");
-    var emailMainDiv = $('<div>').attr({'class':'row email-container well'});
+    sub = sub.substring(0, 50).split(" ").slice(0, -1).join(" ");
+    desc = desc.substring(0, 80).split(" ").slice(0, -1).join(" ");
+    var emailMainDiv = $('<div>').attr({'class':'row email-container well email-jumbotron jumbotron'});
     var iconDiv = $('<div>').attr({'class':'col-lg-2 col-md-2 col-sm-2 hidden-xs text-center'});
     var icon = $('<i>').attr({'class':'icon ion-email hidden-xs email-icon'});
     var emailContentDiv = $('<div>').attr({'class':'col-lg-10 col-md-10 col-sm-10 col-xs-12'}).html($('<div>').attr({'class':'row'}));
     var nameDiv = $('<div>').attr({'class':'col-md-8 col-lg-8 col-sm-12 col-xs-12 email-sender-container'});
     var nameText = $('<h1>').attr({'class':'email-sender'}).html(sender);
     var dateDiv = $('<div>').attr({'class':'col-md-4 col-lg-4 col-sm-12 col-xs-12'});
-    var dateText = $('<h3>').attr({'class':'date'}).html(date);
+    var dateText = $('<h4>').attr({'class':'date'}).html(date);
     var subDiv = $('<div>').attr({'class':'col-md-12 email-subject-container'});
     var subText = $('<h3>').attr({'class':'email-sender'}).html($('<strong>').html(sub));
     var descDiv = $('<div>').attr({'class':'col-md-12 email-description'});
-    var descText = $('<h3>').attr({'class':'email-description'}).html(desc);
+    var descText = $('<h4>').attr({'class':'email-description'}).html(desc);
 
 
-    emailMainDiv.append(iconDiv.html(icon))
+    emailMainDiv
+//        .append(iconDiv.html(icon))
         .append(emailContentDiv
             .append(nameDiv.html(nameText))
             .append(dateDiv.html(dateText))
@@ -90,7 +91,8 @@ function addEmailsToHTML(sender, sub, desc, date) {
             .append(descDiv.html(descText))
         );
 
-    $(".emails-container").slick('slickAdd', emailMainDiv);
+    //$(".emails-container").slick('slickAdd', emailMainDiv);
+    $(".emails-container").append(emailMainDiv);
 }
 
 function removeEmailsFromHTML(numOfEmails) {

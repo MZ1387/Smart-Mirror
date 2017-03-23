@@ -11,7 +11,9 @@ $(document).ready(function() {
         mobileFirst: true,
         vertical: true,
         adaptiveHeight: true,
-        arrows: false
+        arrows: false,
+        infinite: true,
+        pauseOnHover: false
     });
 
 });
