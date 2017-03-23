@@ -65,10 +65,10 @@ function updateSigninStatus(isSignedIn) {
 	console.log(isSignedIn);
     if (isSignedIn) {
         console.log("SIGNED IN HERE");
-        fireBaseAuth.onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 console.log(user);
-                $("#logCheck").html("Hello " + user.displayName);
+                $("#logCheck").html("Hello, " + user.displayName);
                 console.log(user);
                 gUser = user;
             }
