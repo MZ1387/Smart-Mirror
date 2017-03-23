@@ -6,7 +6,7 @@ var config = {
     storageBucket: "smart-mirror-a2978.appspot.com",
     messagingSenderId: "993274322267"
 };
-var gUser, fireBaseAuth, database;
+var gUser, fireBaseAuth, database, idToken, creds;
 
 // Client ID and API key from the Developer Console
 var CLIENT_ID = '993274322267-hbj9vaa6g3mian4nerttlk259qj28e1h.apps.googleusercontent.com';
@@ -44,12 +44,13 @@ function handleClientLoad() {
  */
 function initClient() {
 	gapi.client.init({
+	    apiKey: config.apiKey,
 	discoveryDocs : DISCOVERY_DOCS,
 		clientId : CLIENT_ID,
 		scope : SCOPES,
-        fetch_basic_profile : true
 	}).then(function() {
 		//Listen for sign-in state changes.
+        gUser = gapi.auth2.getAuthInstance().currentUser.get();
 		gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
 		//Handle the initial sign-in state
@@ -63,9 +64,13 @@ function initClient() {
  */
 function updateSigninStatus(isSignedIn) {
 	console.log(isSignedIn);
+    // get the credentials from the google auth response
     if (isSignedIn) {
+        gUser = gapi.auth2.getAuthInstance().currentUser.get();
+        idToken = gUser.getAuthResponse().id_token;
+        creds = firebase.auth.GoogleAuthProvider.credential(idToken);
         console.log("SIGNED IN HERE");
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().signInWithCredential(creds).then(function(user) {
             if (user) {
                 console.log(user);
                 $("#logCheck").html("Hello, " + user.displayName);
