@@ -73,7 +73,6 @@ function updateSigninStatus(isSignedIn) {
                 gUser = user;
             }
         });
-
         /**
          * MAKE API CALLS HERE
          */
