@@ -1,45 +1,84 @@
 <!DOCTYPE html>
 <html>
-	<link rel="stylesheet" href="assets/css/reset.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-	<link rel="stylesheet" href="assets/css/style.css">
 
 <head>
-	<title>Smart Mirror</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Mirror</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Email-Container.css">
 </head>
+
 <body>
-	<h1 id ="logCheck">Logged Out</h1>
-	<h1 id ="logOut">Logged Out</h1>
-
-    <!-- Map container -->
-	<!--<div id="output" class="jumbotron"></div>-->
-	<!--<div id="map"></div>-->
-
-	<!-- Email master container html STARTS HERE -->
-	<div class="container-fluid emails-container">
-	</div>
-	<!-- Email master container html ENDS HERE -->
-
-
-	<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-	<script async defer src="https://apis.google.com/js/api.js"
-			onload="this.onload=function(){};handleClientLoad()"
-			onreadystatechange="if (this.readyState === 'complete') this.onload()">
-	</script>
-	<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4sIDrmu-pRTkiQM7oIZSXaadzSm_q6Kk&callback=initMap"></script>-->
-	<script src="assets/js/script.js"></script>
-    <script src="assets/js/auth.js"></script>
-    <script src="assets/js/mail.js"></script>
-	<!--<script src="assets/js/maps.js"></script>-->
-
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">GOOD MORNING </h1></div>
+            <div class="col-md-12">
+                <h2 class="text-center">3:13 PM</h2></div>
+            <div class="col-md-12">
+                <h3 class="text-center">Friday 3/13</h3></div>
+        </div>
+        <div class="row sidebar-bricks">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2 class="text-nowrap text-center">Email </h2>
+                        <a href="#"> <img class="img-responsive" src="assets/img/pixel-brick.jpg"></a>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="jumbotron email-jumbotron">
+                            <p>Name: </p>
+                            <p>Subject: </p>
+                            <p>Message: </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2 class="text-nowrap text-center">Tasks </h2>
+                        <a href="#"> <img class="img-responsive" src="assets/img/pixel-brick.jpg"></a>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="jumbotron email-jumbotron">
+                            <p>Tasks:10 </p>
+                            <p>* Walk Dog</p>
+                            <p>* Code with Friends!</p>
+                            <p>* Lunch with Mom</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2 class="text-nowrap text-center">Quote </h2>
+                        <a href="#"> <img class="img-responsive" src="assets/img/pixel-brick.jpg"></a>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="jumbotron email-jumbotron">
+                            <p class="text-center">I skate to where the puck is going to be, not where it has been.<span>- Wayne Gretzky</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2 class="text-nowrap text-center">Weather </h2>
+                        <a href="#"> <img class="img-responsive" src="assets/img/pixel-brick.jpg"></a>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="jumbotron email-jumbotron">
+                            <p class="text-center current-temp">75° <span class="current-tempIcon">Sunny</span></p>
+                            <p class="text-center current-temp-recommend">We recommend a sweater</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
+
 </html>
