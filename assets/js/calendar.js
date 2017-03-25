@@ -39,7 +39,7 @@ function getCalendarList() {
 			}
 		} else {
 			console.log("No upcoming events found");
-			$("#day-task-1").text("No upcoming events found");
+			$("#day-task-0").text("No upcoming events found");
 		}
 	});
 }
