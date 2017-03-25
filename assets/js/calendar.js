@@ -3,13 +3,6 @@ window.onload = getCalendarList;
 
 function getCalendarList() {
 	var nextTasks = true;
-	var timer = setInterval(function(){
-		if(nextTasks) {
-			nextTasks = false;
-		} else {
-			nextTasks = true;
-		}
-	}, 1000);
 
 	gapi.client.calendar.events.list({
 		'calendarId' :  'primary',
