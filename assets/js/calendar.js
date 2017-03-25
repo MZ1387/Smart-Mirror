@@ -1,15 +1,16 @@
-window.onload = getCalendarList;
+// window.onload = getCalendarList;
 //Gets calendar list
+
 
 function getCalendarList() {
 	var nextTasks = true;
-	var timer = setInterval(function(){
-		if(nextTasks) {
-			nextTasks = false;
-		} else {
-			nextTasks = true;
-		}
-	}, 20000);
+	// var timer = setInterval(function(){
+	// 	if(nextTasks) {
+	// 		nextTasks = false;
+	// 	} else {
+	// 		nextTasks = true;
+	// 	}
+	// }, 20 * 1000);
 
 	gapi.client.calendar.events.list({
 		'calendarId' :  'primary',
@@ -20,7 +21,7 @@ function getCalendarList() {
 		'orderBy' : 'startTime'
 	}).then(function(response) {
 		var events = response.result.items;
-		console.log(response);
+		console.log("CALENDAR", response);
 //These next lines will be sifting through the events and adding them to the to do list
 		if(events.length>0) {
 			for(i=0; i < 8; i++) {

@@ -81,8 +81,11 @@ function updateSigninStatus(isSignedIn) {
         /**
          * MAKE API CALLS HERE
          */
+        console.log("load reminders");
+        getCalendarList();
         console.log("calling get emails");
         getIdList('me', false, 'INBOX', EMAILS_TO_LOAD);
+
 
     } else {
         var btn = $("<button>").text("Login").attr("id", "loginBtn");
