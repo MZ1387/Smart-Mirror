@@ -1,3 +1,4 @@
+window.onload = getCalendarList;
 //Gets calendar list
 
 function getCalendarList() {
