@@ -1,6 +1,6 @@
 var weatherAPIKey = "991cb9d2810d9a48e4c02d8cee500cdc";
-var lat;
-var lon;
+var lat = 34.1466;
+var lon = -118.4669;
 var timeInSeconds;
 var homeCoordinates = lat + "," +lon;
 
