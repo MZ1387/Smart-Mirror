@@ -73,7 +73,7 @@ function addEmailsToHTML(sender, sub, desc, date) {
     var icon = $('<i>').attr({'class':'icon ion-email hidden-xs email-icon'});
     var emailContentDiv = $('<div>').attr({'class':'col-lg-10 col-md-10 col-sm-10 col-xs-12'}).html($('<div>').attr({'class':'row'}));
     var nameDiv = $('<div>').attr({'class':'col-md-8 col-lg-8 col-sm-12 col-xs-12 email-sender-container'});
-    var nameText = $('<h4>').attr({'class':'email-sender'}).html(sender);
+    var nameText = $('<h3>').attr({'class':'email-sender'}).html(sender);
     var dateDiv = $('<div>').attr({'class':'col-md-4 col-lg-4 col-sm-12 col-xs-12'});
     var dateText = $('<h5>').attr({'class':'date'}).html(date);
     var subDiv = $('<div>').attr({'class':'col-md-12 email-subject-container'});
