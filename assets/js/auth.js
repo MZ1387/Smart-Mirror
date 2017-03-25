@@ -26,7 +26,7 @@ var SCOPES = '' +
 	' https://www.googleapis.com/auth/user.addresses.read ';
 
 // Number of emails to load
-var EMAILS_TO_LOAD = 9;
+var EMAILS_TO_LOAD = 25;
 
 firebase.initializeApp(config);
 fireBaseAuth = firebase.auth();
@@ -83,7 +83,7 @@ function updateSigninStatus(isSignedIn) {
          */
         console.log("calling get emails");
         getIdList('me', false, 'INBOX', EMAILS_TO_LOAD);
-
+        getCalendarList();
 
     } else {
         var btn = $("<button>").text("Login").attr("id", "loginBtn");

@@ -4,13 +4,13 @@
 
 function getCalendarList() {
 	var nextTasks = true;
-	var timer = setInterval(function(){
-		if(nextTasks) {
-			nextTasks = false;
-		} else {
-			nextTasks = true;
-		}
-	}, 5000);
+	// var timer = setInterval(function(){
+	// 	if(nextTasks) {
+	// 		nextTasks = false;
+	// 	} else {
+	// 		nextTasks = true;
+	// 	}
+	// }, 5000);
 
 	gapi.client.calendar.events.list({
 		'calendarId' :  'primary',
