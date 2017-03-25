@@ -13,7 +13,7 @@ function start() {
 		} else if (dir === "tickers") {
 			window.location.href = "quote.html";
 		} else {
-			window.location.href = "index.html";
+			window.location.href = "email.html";
 		}
 	}, 15000);
 }
