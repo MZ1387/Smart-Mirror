@@ -3,6 +3,9 @@ var dir = loc.substring(loc.lastIndexOf('/') + 1, loc.lastIndexOf('.'));
 
 function start() {
 	var timer = setInterval(function() {
+		if(dir === Smart-Mirror) {
+			dir = "index";
+		}
 		if(dir === "index") {
 			window.location.href = "email.html";
 		} else if (dir === "email") {
