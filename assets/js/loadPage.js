@@ -12,6 +12,8 @@ function start() {
 			window.location.href = "tickers.html";
 		} else if (dir === "tickers") {
 			window.location.href = "quote.html";
+		} else if (dir === "quote.html") {
+			window.location.href = "index.html";
 		} else {
 			window.location.href = "email.html";
 		}
