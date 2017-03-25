@@ -1,4 +1,4 @@
-var weatherAPIKey = "991cb9d2810d9a48e4c02d8cee500cdc";
+var weatherAPIKey = "b962edc75c2036115be7914d5b2110cf";
 var lat = 34.1466;
 var lon = -118.4669;
 var timeInSeconds;
@@ -24,7 +24,7 @@ function getWeather(){
       console.log(weatherqueryURL);
       console.log(response);
       $(".current-temp").html(Math.floor(response.currently.temperature) + "° " + response.currently.summary);
-      // $(".current-tempIcon").html(response.currently.summary);
+      $(".current-tempIcon").text(response.currently.summary);
       timeInSeconds=60;
       
     });   
