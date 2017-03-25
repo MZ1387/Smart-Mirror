@@ -1,129 +1,22 @@
-var Markit = {};
-/**
- * Define the QuoteService.
- * First argument is symbol (string) for the quote. Examples: AAPL, MSFT, JNJ, GOOG.
- * Second argument is fCallback, a callback function executed onSuccess of API.
- */
-Markit.QuoteService = function(sSymbol, fCallback) {
-    this.symbol = sSymbol;
-    this.fCallback = fCallback;
-    this.DATA_SRC = "http://dev.markitondemand.com/Api/v2/Quote/jsonp";
-    this.makeRequest();
-};
-/**
- * Ajax success callback. fCallback is the 2nd argument in the QuoteService constructor.
- */
-Markit.QuoteService.prototype.handleSuccess = function(jsonResult) {
-    this.fCallback(jsonResult);
-};
-/**
- * Ajax error callback
- */
-Markit.QuoteService.prototype.handleError = function(jsonResult) {
-    console.error(jsonResult);
-};
-/** 
- * Starts a new ajax request to the Quote API
- */
-Markit.QuoteService.prototype.makeRequest = function() {
-    //Abort any open requests
-    if (this.xhr) {
-        this.xhr.abort();
-    }
-    //Start a new request
-    this.xhr = $.ajax({
-        data: {
-            symbol: this.symbol
-        },
-        url: this.DATA_SRC,
-        dataType: "jsonp",
-        success: this.handleSuccess,
-        error: this.handleError,
-        context: this
+var stockTickerAPIKey = "qthmb-eUgGQsGVNyxxPX";
+var stockTicker1 = "https://www.quandl.com/api/v3/datasets/WIKI/FB.json?api_key=" + stockTickerAPIKey;
+var stockTicker2 = "https://www.quandl.com/api/v3/datasets/WIKI/GOOG.json?api_key=" + stockTickerAPIKey;
+var stockTicker3 = "https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?api_key=" + stockTickerAPIKey;
+var stockTicker4 = "https://www.quandl.com/api/v3/datasets/WIKI/TSLA.json?api_key=" + stockTickerAPIKey;
+
+$.ajax({
+      url: stockTicker1,
+      method: "GET"
+    }).done(function(response) {
+    	console.log(response);
+    	$("#stock1").html(response.dataset.dataset_code + " " + response.dataset.data[0][4] + " ");
     });
-};
-
-window.onload = function() {
-
-    new Markit.QuoteService("AAPL", function(jsonResult) {
-
-        //Catch errors
-        if (!jsonResult || jsonResult.Message) {
-            console.error("Error: ", jsonResult.Message);
-            return;
-        }
-
-        //If all goes well, your quote will be here.
-        console.log(jsonResult);
-
-        //Now proceed to do something with the data.
-
-        $("#stock1").html(jsonResult.Symbol + ": " + jsonResult.LastPrice);
-
-
-        /**
-         * Need help? Visit the API documentation at:
-         * http://dev.markitondemand.com
-         */
-    });
-    new Markit.QuoteService("GOOGL", function(jsonResult) {
-
-        //Catch errors
-        if (!jsonResult || jsonResult.Message) {
-            console.error("Error: ", jsonResult.Message);
-            return;
-        }
-
-        //If all goes well, your quote will be here.
-        console.log(jsonResult);
-
-        //Now proceed to do something with the data.
-        $("#stock2").html(jsonResult.Symbol + ": " + jsonResult.LastPrice);
-
-        /**
-         * Need help? Visit the API documentation at:
-         * http://dev.markitondemand.com
-         */
-
-    });
-    new Markit.QuoteService("TSLA", function(jsonResult) {
-
-        //Catch errors
-        if (!jsonResult || jsonResult.Message) {
-            console.error("Error: ", jsonResult.Message);
-            return;
-        }
-
-        //If all goes well, your quote will be here.
-        console.log(jsonResult);
-
-        //Now proceed to do something with the data.
-        $("#stock3").html(jsonResult.Symbol + ": " + jsonResult.LastPrice);
-
-        /**
-         * Need help? Visit the API documentation at:
-         * http://dev.markitondemand.com
-         */
-
-    });
-    new Markit.QuoteService("FB", function(jsonResult) {
-
-        //Catch errors
-        if (!jsonResult || jsonResult.Message) {
-            console.error("Error: ", jsonResult.Message);
-            return;
-        }
-
-        //If all goes well, your quote will be here.
-        console.log(jsonResult);
-
-        //Now proceed to do something with the data.
-        $("#stock4").html(jsonResult.Symbol + ": " + jsonResult.LastPrice);
-
-        /**
-         * Need help? Visit the API documentation at:
-         * http://dev.markitondemand.com
-         */
-
-    });
-}
+$.getJSON(stockTicker2).done(function(response) {
+	$("#stock2").html(response.dataset.dataset_code + " " + response.dataset.data[0][4] + " ");
+	});
+$.getJSON(stockTicker3).done(function(response) {
+	$("#stock3").html(response.dataset.dataset_code + " " + response.dataset.data[0][4] + " ");
+	});
+$.getJSON(stockTicker4).done(function(response) {
+	$("#stock4").html(response.dataset.dataset_code + " " + response.dataset.data[0][4] + " ");
+	});
