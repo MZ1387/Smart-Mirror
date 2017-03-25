@@ -1,79 +1,116 @@
-/**
- * Created by rutul on 3/21/17.
- */
+window.onload = start;
 
-function initMap() {
-    var bounds = new google.maps.LatLngBounds;
-    var markersArray = [];
+var platform = new H.service.Platform({
+  'app_id': '4aSOFHFXPy8Pqn1TRw8r',
+    'app_code': '0eLKKaGA8h0AqEvhjPBf0Q',
+    'useHTTPS': true
+});
 
-    var origin1 = {lat: 55.93, lng: -3.118};
-    var origin2 = 'Greenwich, England';
-    var destinationA = 'Stockholm, Sweden';
-    var destinationB = {lat: 50.087, lng: 14.421};
+var homeCoordinates, workCoordinates;
+var work = localStorage.getItem("work");
+var homeCoordinates, updateETA;
 
-    var destinationIcon = 'https://chart.googleapis.com/chart?' +
-        'chst=d_map_pin_letter&chld=D|FF0000|000000';
-    var originIcon = 'https://chart.googleapis.com/chart?' +
-        'chst=d_map_pin_letter&chld=O|FFFF00|000000';
-    var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 55.53, lng: 9.4},
-        zoom: 10
-    });
-    var geocoder = new google.maps.Geocoder;
+function start() {
+    //change following addresses to make it work
+  if(work === null) {
+    work = prompt("Where do you work?");
+    localStorage.setItem("work", work);
+  }
 
-    var service = new google.maps.DistanceMatrixService;
-    service.getDistanceMatrix({
-        origins: ["Los Angeles, CA"],
-        destinations: ["Santa Monica, CA"],
-        travelMode: 'DRIVING',
-        unitSystem: google.maps.UnitSystem.METRIC,
-        avoidHighways: false,
-        avoidTolls: false
-    }, function(response, status) {
-        if (status !== 'OK') {
-            alert('Error was: ' + status);
-        } else {
-            var originList = response.originAddresses;
-            var destinationList = response.destinationAddresses;
-            var outputDiv = document.getElementById('output');
-            outputDiv.innerHTML = '';
-            deleteMarkers(markersArray);
+  console.log("Work:" , work);
+  getLocation();
+  console.log("home:" , homeCoordinates);
 
-            var showGeocodedAddressOnMap = function(asDestination) {
-                var icon = asDestination ? destinationIcon : originIcon;
-                return function(results, status) {
-                    if (status === 'OK') {
-                        map.fitBounds(bounds.extend(results[0].geometry.location));
-                        markersArray.push(new google.maps.Marker({
-                            map: map,
-                            position: results[0].geometry.location,
-                            icon: icon
-                        }));
-                    } else {
-                        alert('Geocode was not successful due to: ' + status);
-                    }
-                };
-            };
-
-            for (var i = 0; i < originList.length; i++) {
-                var results = response.rows[i].elements;
-                geocoder.geocode({'address': originList[i]},
-                    showGeocodedAddressOnMap(false));
-                for (var j = 0; j < results.length; j++) {
-                    geocoder.geocode({'address': destinationList[j]},
-                        showGeocodedAddressOnMap(true));
-                    outputDiv.innerHTML += originList[i] + ' to ' + destinationList[j] +
-                        ': ' + results[j].distance.text + ' in ' +
-                        results[j].duration.text + '<br>';
-                }
-            }
-        }
-    });
+  updateETA = setInterval(function() {
+    calculateRouteFromAtoB(platform);
+  }, 3000);
 }
 
-function deleteMarkers(markersArray) {
-    for (var i = 0; i < markersArray.length; i++) {
-        markersArray[i].setMap(null);
+function geocode(platform, loc) {
+  var geocoder = platform.getGeocodingService(),
+    geocodingParameters = {
+      searchText: loc,
+        gen:9,
+      jsonattributes : 1
+    };
+
+  geocoder.geocode(
+    geocodingParameters,
+    onSuccessGeocode,
+    onError
+  );
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(setPosition);
+    } else { 
+        console.log("Geolocation is not supported by this browser.");
     }
-    markersArray = [];
+}
+
+function setPosition(position) {
+    homeCoordinates = position.coords.latitude + "," + position.coords.longitude;
+    geocode(platform, work);
+}
+
+function onSuccessGeocode(result) {
+  var locations = result.response.view[0].result;
+  var l = locations[0].location.navigationPosition[0];
+  var x = l.latitude;
+  var y = l.longitude;
+  var coor = x + "," + y;
+  // console.log(coor);
+
+  workCoordinates = coor;
+}
+
+function calculateRouteFromAtoB (platform) {
+  // console.log(workCoordinates + " " + homeCoordinates);
+  var router = platform.getRoutingService(),
+    routeRequestParams = {
+        'metricSystem' : 'imperial',
+      mode: 'fastest;car;traffic:enabled',
+      representation: 'display',
+      routeattributes : 'waypoints,summary,shape,legs',
+      maneuverattributes: 'direction,action',
+      waypoint0: homeCoordinates, // replace with '52.5160,13.3779'
+      waypoint1: workCoordinates  // replace with '52'5206,13.3862' and this works
+    };
+
+  router.calculateRoute(
+    routeRequestParams,
+    onSuccess,
+    onError
+  );
+}
+
+function onSuccess(result) {
+  // console.log(result);
+  var route = result.response.route[0];
+  console.log(route.summary);
+
+  var travelTime = route.summary.travelTime;
+  var hr, min , sec;
+  var msg =  "";
+
+    console.log(Math.floor(travelTime/60));
+  if(Math.floor(travelTime/60) > 60) {
+      hr = Math.floor(travelTime/(60*60));
+      min = Math.floor(travelTime/60) - (hr * 60);
+      sec = travelTime % 60;
+      msg = hr + ' hour, ' + min + ' minutes & ' + sec + ' seconds.';
+  } else {
+      min = Math.floor(travelTime/60);
+      sec = travelTime % 60;
+      msg = min + ' minutes & ' + sec + ' seconds.';
+  }
+
+  console.log(route.summary.text);
+
+  $("#eta").text("Estimate time to work: " + msg);
+}
+
+function onError(error) {
+  alert('Ooops!');
 }
