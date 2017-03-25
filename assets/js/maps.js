@@ -13,8 +13,7 @@ var homeCoordinates, updateETA;
 function start() {
     //change following addresses to make it work
   if(work === null) {
-    $("#workModal").modal('show');
-    work = $("#workInput").val();
+    work = prompt("Where do you work?");
     localStorage.setItem("work", work);
   }
 
