@@ -4,7 +4,7 @@
 $(document).ready(function() {
 
     $(".emails-container").slick({
-        slidesToShow: 3,
+        slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,

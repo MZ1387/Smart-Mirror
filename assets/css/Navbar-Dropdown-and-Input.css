@@ -44,6 +44,7 @@ a.navbar-brand.text-lowercase.navbar-link {
 }
 
 .email-container {
+  background: #000;
 }
 
 .tasks-li, .tickers-li {
