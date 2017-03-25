@@ -1,0 +1,65 @@
+.navbar-brand {
+  display:flex;
+  align-items:center;
+}
+
+.navbar-inverse {
+  /*background-image:-webkit-linear-gradient(top,#3c3c3c 0,#222 100%);*/
+  /*background-image:-o-linear-gradient(top,#3c3c3c 0,#222 100%);*/
+  /*background-image:-webkit-gradient(linear,left top,left bottom,from(#3c3c3c),to(#222));*/
+  /*background-image:linear-gradient(to bottom,#3c3c3c 0,#222 100%);*/
+  /*filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);*/
+  /*filter:progid:DXImageTransform.Microsoft.gradient(enabled=false);*/
+  /*background-repeat:repeat-x;*/
+  border-radius:0px;
+}
+
+.navbar-inverse .navbar-link {
+  color:#'Righteous', cursive;
+}
+
+.navbar-inverse .navbar-link {
+  color:#fff;
+}
+
+.navbar-brand img {
+  padding:7px 14px;
+}
+
+a.navbar-brand.text-lowercase.navbar-link {
+  /*border-right:5px solid white;*/
+}
+
+.fa {
+  font-size:20px;
+}
+
+.main-container {
+  margin-top:100px;
+}
+
+.jumbotron {
+  background-color:#000;
+  /*border:1px solid;*/
+}
+
+.email-container {
+}
+
+.tasks-li, .tickers-li {
+  font-size:17px;
+  /*list-style:none;*/
+}
+
+.current-temp {
+  border-left:3px solid white;
+}
+
+.login {
+  border-right:3px solid white;
+}
+
+div.modal-header {
+  color:#000;
+}
+

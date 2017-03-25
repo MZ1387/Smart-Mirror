@@ -13,6 +13,17 @@
 </head>
 
 <body>
+    <div class="container-fluid main-container">
+        <div class="row">
+            <div class="col-md-12 email-container">
+                <div class="jumbotron tasks-container">
+                    <p class="email-sender">Name: </p>
+                    <p>Subject: </p>
+                    <p>Message: </p>
+                </div>
+            </div>
+        </div>
+    </div>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -30,10 +41,10 @@
                     <li role="presentation"><a class="current-temp">65°<i class="fa fa-sun-o"></i> </a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active" role="presentation">
+                    <li role="presentation">
                         <a href="index.html"> <i class="fa fa-calendar"></i></a>
                     </li>
-                    <li role="presentation">
+                    <li class="active" role="presentation">
                         <a href="email.html"> <i class="fa fa-envelope-o"></i></a>
                     </li>
                     <li role="presentation">
@@ -46,30 +57,15 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid main-container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="jumbotron tasks-container">
-                    <p>Reminders:<span class=".total-tasks">4</span></p>
-                    <ul class="tasks-li">
-                        <li class=".day-task-1">Meditate</li>
-                        <li class=".day-task-2">Study for friday's test</li>
-                        <li class=".day-task-3">Meetup for lunch</li>
-                        <li class=".day-task-4">Build a smart mirror</li>
-                    </ul>
+    <div class="modal fade" role="dialog" tabindex="-1" id="loginModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button class="btn btn-default btn-block" type="button" id="logCheck">Login</button>
+                    <button class="btn btn-default btn-block" type="button" id="logOut">Logout</button>
                 </div>
-            </div>
-        </div>
-        <div class="modal fade" role="dialog" tabindex="-1" id="loginModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button class="btn btn-default btn-block" type="button" id="logCheck">Login</button>
-                        <button class="btn btn-default btn-block" type="button" id="logOut">Logout</button>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
-                    </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
