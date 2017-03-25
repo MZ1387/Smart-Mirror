@@ -17,9 +17,7 @@ function start() {
     localStorage.setItem("work", work);
   }
 
-  console.log("Work:" , work);
   getLocation();
-  console.log("home:" , homeCoordinates);
 
   updateETA = setInterval(function() {
     calculateRouteFromAtoB(platform);
@@ -93,7 +91,6 @@ function onSuccess(result) {
   var hr, min , sec;
   var msg =  "";
 
-    console.log(Math.floor(travelTime/60));
   if(Math.floor(travelTime/60) > 60) {
       hr = Math.floor(travelTime/(60*60));
       min = Math.floor(travelTime/60) - (hr * 60);
