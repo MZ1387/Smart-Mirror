@@ -77,7 +77,7 @@ function addEmailsToHTML(sender, sub, desc, date) {
     var dateDiv = $('<div>').attr({'class':'col-md-4 col-lg-4 col-sm-12 col-xs-12'});
     var dateText = $('<h5>').attr({'class':'date'}).html(date);
     var subDiv = $('<div>').attr({'class':'col-md-12 email-subject-container'});
-    var subText = $('<h5>').attr({'class':'email-sender'}).html($('<strong>').html(sub));
+    var subText = $('<h4>').attr({'class':'email-sender'}).html($('<strong>').html(sub));
     var descDiv = $('<div>').attr({'class':'col-md-12 email-description'});
     var descText = $('<h5>').attr({'class':'email-description'}).html(desc);
 
