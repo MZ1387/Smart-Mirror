@@ -21,7 +21,7 @@ function start() {
 
   updateETA = setInterval(function() {
     calculateRouteFromAtoB(platform);
-  }, 500);
+  }, 1000);
 }
 
 function geocode(platform, loc) {
