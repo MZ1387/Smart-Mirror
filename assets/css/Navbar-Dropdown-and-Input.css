@@ -64,3 +64,8 @@ div.modal-header {
   color:#000;
 }
 
+#eta {
+  border-right:3px solid white;
+  border-left:3px solid white;
+  /*border-radius:20px;*/
+}
