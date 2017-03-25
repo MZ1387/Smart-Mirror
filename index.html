@@ -29,20 +29,6 @@
                     </li>
                     <li role="presentation"><a class="current-temp">65°<i class="fa fa-sun-o"></i> </a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active" role="presentation">
-                        <a href="index.html"> <i class="fa fa-calendar"></i></a>
-                    </li>
-                    <li role="presentation">
-                        <a href="email.html"> <i class="fa fa-envelope-o"></i></a>
-                    </li>
-                    <li role="presentation">
-                        <a href="tickers.html"> <i class="fa fa-money"></i></a>
-                    </li>
-                    <li role="presentation">
-                        <a href="quote.html"> <i class="fa fa-quote-right"></i></a>
-                    </li>
-                </ul>
             </div>
         </div>
     </nav>
@@ -52,7 +38,7 @@
                 <h4 class="text-center">Estimated time to work:</h4>
                 <h4 class="text-center" id="eta"></h4>
         </div>
-        <div class="row">
+        <div class="row" id = "taskDiv">
             <div class="col-md-12">
                 <div class="jumbotron tasks-container">
                     <p>Reminders:<span class=".total-tasks">4</span></p>
@@ -65,6 +51,37 @@
                 </div>
             </div>
         </div>
+
+        <div class="row" id = "emailDiv">
+            <!-- Email master container html STARTS HERE -->
+            <div class="container col-md-6 emails-container">
+            </div>
+            <!-- Email master container html ENDS HERE -->
+        </div>
+
+        <div class="row" id = "quoteDiv">
+            <div class="col-md-12">
+                <div class="jumbotron text-center" id="newQuote">
+                    <!-- <p>"I skate to where the puck is going to be, not where it has been." </p>
+                    <p class="text-right" id="quoteAuthor"> - Wayne Gretzky </p> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id = "tickerDiv">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <p>Investments: </p>
+                    <ul class="tickers-li">
+                        <li id="stock1">GOOGL: 835.14 </li>
+                        <li id="stock2">AAPL: 140.64</li>
+                        <li id="stock3">TSLA: 263.16 </li>
+                        <li id="stock4">FB: 140.34 </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
         <div class="modal fade" role="dialog" tabindex="-1" id="loginModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -109,6 +126,9 @@
     <script src="https://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
 
     <script src="assets/js/loadPage.js" onload="start()"></script>
+    <script src="assets/js/email.js"></script>
+    <script src="assets/js/quote.js"></script>
+    <script src="assets/js/stocks.js"></script>
     <script src="assets/js/calendar.js"></script>
     <script src="assets/js/datetime.js"></script>
     <script src="assets/js/weather.js"></script>
