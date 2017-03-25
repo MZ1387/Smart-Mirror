@@ -32,9 +32,10 @@ function getCalendarList() {
 				console.log(event.summary + ' (' + when + ')');
 				if(nextTasks) {
 					$("#day-task-" + i).text(event.summary + ' (' + when + ')');
-
+					console.log(event.summary + '(' + when + ')');
 				} else {
 					$("#day-task-" + (i-4)).text(event.summary + ' (' + when + ')');
+					console.log(event.summary + '(' + when + ')');
 				}
 
 			}
