@@ -30,14 +30,15 @@ function getCalendarList() {
 				if(!when) {
 					when = event.start.date;
 				}
-				console.log(event.summary + ' (' + when + ')');
+				console.log(event.summary + ' (' + when.split('T')[0] + ')');
 				if(nextTasks) {
-					$("#day-task-" + i).text(event.summary + ' (' + when + ')');
-					console.log(event.summary + '(' + when + ')');
+					//$("#day-task-" + i).text(event.summary + ' (' + when + ')');
+                    $("#day-task-" + i).text(event.summary);
+					console.log(event.summary);
 
 				} else {
-					$("#day-task-" + (i-4)).text(event.summary + ' (' + when + ')');
-					console.log(event.summary + '(' + when + ')');
+					//$("#day-task-" + (i-4)).text(event.summary + ' (' + when + ')');
+					console.log(event.summary);
 				}
 
 			}
