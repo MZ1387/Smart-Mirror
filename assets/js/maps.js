@@ -44,7 +44,7 @@ function geocode(platform, loc) {
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(setPosition);
-    } else { 
+    } else {
         console.log("Geolocation is not supported by this browser.");
     }
 }
@@ -108,7 +108,13 @@ function onSuccess(result) {
 
   console.log(route.summary.text);
 
-  $("#eta").text("Estimate time to work: " + msg);
+  var etaH = $("<h4>").text("Estimate time to work:").attr("class", "text-center");
+  var timeH = $("<h4>").text(msg).attr("class", "text-center");
+
+  $("#eta").append(etaH);
+  $("#eta").append(timeH);
+
+  // $("#eta").html("Estimate time to work: " + msg);
 }
 
 function onError(error) {
