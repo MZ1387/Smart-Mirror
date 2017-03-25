@@ -3,7 +3,7 @@ var dir = loc.substring(loc.lastIndexOf('/') + 1, loc.lastIndexOf('.'));
 
 function start() {
 	var timer = setInterval(function() {
-		if(dir === Smart-Mirror) {
+		if(dir === "Smart-Mirror" || dir === null) {
 			dir = "index";
 		}
 		if(dir === "index") {
