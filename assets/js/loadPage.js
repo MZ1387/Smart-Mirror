@@ -2,9 +2,15 @@ var loc = window.location.pathname;
 var dir = loc.substring(loc.lastIndexOf('/') + 1, loc.lastIndexOf('.'));
 
 function start() {
-	var loaded = 0;
+	var loaded = 1;
+	
+	
 	var timer = setInterval(function() {
-
+	$("#taskDiv").show();
+	$("#emailDiv").hide();
+	$("#quoteDiv").hide();
+	$("#tickersDiv").hide();
+		
 		if(loaded === 0) {
 			$("#taskDiv").show();
 			$("#emailDiv").hide();
