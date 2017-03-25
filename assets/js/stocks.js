@@ -1,8 +1,8 @@
 var stockTickerAPIKey = "qthmb-eUgGQsGVNyxxPX";
-var stockTicker1 = "https://www.quandl.com/api/v3/datasets/WIKI/FB.json?api_key=" + stockTickerAPIKey;
-var stockTicker2 = "https://www.quandl.com/api/v3/datasets/WIKI/GOOG.json?api_key=" + stockTickerAPIKey;
-var stockTicker3 = "https://www.quandl.com/api/v3/datasets/WIKI/AAPL.json?api_key=" + stockTickerAPIKey;
-var stockTicker4 = "https://www.quandl.com/api/v3/datasets/WIKI/TSLA.json?api_key=" + stockTickerAPIKey;
+var stockTicker1 = "https://www.quandl.com/api/v3/datasets/WIKI/AMD.json?api_key=" + stockTickerAPIKey;
+var stockTicker2 = "https://www.quandl.com/api/v3/datasets/WIKI/YHOO.json?api_key=" + stockTickerAPIKey;
+var stockTicker3 = "https://www.quandl.com/api/v3/datasets/WIKI/TWTR.json?api_key=" + stockTickerAPIKey;
+var stockTicker4 = "https://www.quandl.com/api/v3/datasets/WIKI/SBUX.json?api_key=" + stockTickerAPIKey;
 
 $.ajax({
       url: stockTicker1,
