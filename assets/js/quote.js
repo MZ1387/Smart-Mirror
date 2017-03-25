@@ -14,5 +14,6 @@ $(function() {
   }
 
 getNewQuote();
+setInterval(getNewQuote, 60 * 1000);
 
 });
