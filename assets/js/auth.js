@@ -12,7 +12,7 @@ var gUser, fireBaseAuth, database, idToken, creds;
 var CLIENT_ID = '993274322267-hbj9vaa6g3mian4nerttlk259qj28e1h.apps.googleusercontent.com';
 
 // Array of API discovery doc URLs for APIs used by the quickstart
-var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"];
+var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest", "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
 
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
@@ -21,7 +21,7 @@ var SCOPES = '' +
     ' https://www.googleapis.com/auth/gmail.readonly ' +
 	' https://www.googleapis.com/auth/plus.login ' +
     ' https://www.googleapis.com/auth/gmail.modify ' +
-	' https://www.googleapis.com/auth/calendar.readonly ' +
+	' https://www.googleapis.com/auth/calendar ' +
 	// ' https://www.googleapis.com/auth/gmail.metadata ' +
 	' https://www.googleapis.com/auth/user.addresses.read ';
 
