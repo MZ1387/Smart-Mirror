@@ -30,9 +30,6 @@ function getCalendarList() {
 				if(!when) {
 					when = event.start.date;
 				}
-				if (i = 5) {
-					nextTasks = false;
-				}
 				console.log(event.summary + ' (' + when + ')');
 				if(nextTasks) {
 					$("#day-task-" + i).text(event.summary + ' (' + when + ')');
