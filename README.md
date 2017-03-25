@@ -1,5 +1,5 @@
 # Smart-Mirror
-In this assignment, our group used the the gmail, google maps, google calendar finance, quote and weather API along with Firebase Authentication to create a Smart Mirror that renders a users information onto one screen. The Smart Mirror calls multiple APIs and uses JavaScript and jQuery to change the HTML of the mirror to update on intervals.
+In this assignment, our group used the gmail, google maps, google calendar, finance, quote and weather API along with Firebase Authentication to create a Smart Mirror that renders a users information onto one screen. The Smart Mirror calls multiple APIs and uses JavaScript and jQuery to change the HTML of the mirror to update on intervals.
 
 ## Live Link (GitHub Pages)
 - https://mz1387.github.io/Smart-Mirror/
@@ -29,10 +29,10 @@ In this assignment, our group used the the gmail, google maps, google calendar f
 
 ## Code Explanation
 
-- A user must login an verify authentication through Firebase.
+- A user must login and verify authentication through Firebase.
 - The current time, day and weather are displayed based on a user's location,
 - After authentication a user's daily reminders are displayed in the reminder
 - Current tickers a user has invested in are displayed in realtime
-- A daily quote is displayed using and quotes API
-- The latest email is pulled and shown to update the user
+- A daily quote is displayed using a quotes API
+- The latest emails are pulled and shown by scrolling along the screen
 - An ETA to work is also displayed by way of google maps
