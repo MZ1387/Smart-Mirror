@@ -9,7 +9,7 @@ function getCalendarList() {
 		} else {
 			nextTasks = true;
 		}
-	}, 20000);
+	}, 1000);
 
 	gapi.client.calendar.events.list({
 		'calendarId' :  'primary',
