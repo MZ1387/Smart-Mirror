@@ -47,11 +47,6 @@ a.navbar-brand.text-lowercase.navbar-link {
   background: #000;
 }
 
-.emails-container {
-  background: #000;
-  margin-top: 10px;
-}
-
 .tasks-li, .tickers-li {
   font-size:17px;
   /*list-style:none;*/
