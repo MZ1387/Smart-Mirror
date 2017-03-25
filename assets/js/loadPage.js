@@ -2,20 +2,39 @@ var loc = window.location.pathname;
 var dir = loc.substring(loc.lastIndexOf('/') + 1, loc.lastIndexOf('.'));
 
 function start() {
+	var loaded = 0;
 	var timer = setInterval(function() {
-		if(dir === "Smart-Mirror" || dir === undefined) {
-			dir = "index";
-		}
-		if(dir === "index") {
-			window.location.href = "email.html";
-		} else if (dir === "email") {
-			window.location.href = "tickers.html";
-		} else if (dir === "tickers") {
-			window.location.href = "quote.html";
-		} else if (dir === "quote") {
-			window.location.href = "index.html";
+
+		if(loaded === 0) {
+			$("#taskDiv").show();
+			$("#emailDiv").hide();
+			$("#quoteDiv").hide();
+			$("#tickersDiv").hide();
+			loaded = 1;
+		}else if(loaded === 1) {
+			$("#taskDiv").hide();
+			$("#emailDiv").show();
+			$("#quoteDiv").hide();
+			$("#tickersDiv").hide();
+			loaded = 2;
+		} else if (loaded === 2) {
+			$("#taskDiv").hide();
+			$("#emailDiv").hide();
+			$("#quoteDiv").show();
+			$("#tickersDiv").hide();
+			loaded = 3;
+		} else if (loaded === 3) {
+			$("#taskDiv").hide();
+			$("#emailDiv").hide();
+			$("#quoteDiv").hide();
+			$("#tickersDiv").show();
+			loaded = 0;
 		} else {
-			window.location.href = "email.html";
+			$("#taskDiv").show();
+			$("#emailDiv").hide();
+			$("#quoteDiv").hide();
+			$("#tickersDiv").hide();
+			loaded = 0;
 		}
 	}, 15000);
 }
