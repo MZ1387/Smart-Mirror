@@ -20,7 +20,7 @@ function getCalendarList() {
 		'orderBy' : 'startTime'
 	}).then(function(response) {
 		var events = response.result.items;
-		console.log(response);
+		console.log(response.result.items);
 //These next lines will be sifting through the events and adding them to the to do list
 		if(events.length>0) {
 			for(i=0; i < 8; i++) {
