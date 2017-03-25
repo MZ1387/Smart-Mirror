@@ -108,13 +108,14 @@ function onSuccess(result) {
 
   console.log(route.summary.text);
 
-  var etaH = $("<h4>").text("Estimate time to work:").attr("class", "text-center");
-  var timeH = $("<h4>").text(msg).attr("class", "text-center");
-
-  $("#eta").append(etaH);
-  $("#eta").append(timeH);
+  // var etaH = $("<h4>").text("Estimate time to work:").attr("class", "text-center");
+  // var timeH = $("<h4>").text(msg).attr("class", "text-center");
+  //
+  // $("#eta").append(etaH);
+  // $("#eta").append(timeH);
 
   // $("#eta").html("Estimate time to work: " + msg);
+  $("#eta").html(msg);
 }
 
 function onError(error) {
