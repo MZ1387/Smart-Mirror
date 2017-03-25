@@ -17,9 +17,7 @@ function start() {
     localStorage.setItem("work", work);
   }
 
-  console.log("Work:" , work);
   getLocation();
-  console.log("home:" , homeCoordinates);
 
   updateETA = setInterval(function() {
     calculateRouteFromAtoB(platform);
@@ -88,13 +86,9 @@ function calculateRouteFromAtoB (platform) {
 function onSuccess(result) {
   // console.log(result);
   var route = result.response.route[0];
-  //console.log(route.summary);
-
   var travelTime = route.summary.travelTime;
   var hr, min , sec;
   var msg =  "";
-
-    //console.log(Math.floor(travelTime/60));
   if(Math.floor(travelTime/60) > 60) {
       hr = Math.floor(travelTime/(60*60));
       min = Math.floor(travelTime/60) - (hr * 60);
@@ -105,8 +99,6 @@ function onSuccess(result) {
       sec = travelTime % 60;
       msg = min + ' minutes & ' + sec + ' seconds.';
   }
-
-  //console.log(route.summary.text);
 
   // var etaH = $("<h4>").text("Estimate time to work:").attr("class", "text-center");
   // var timeH = $("<h4>").text(msg).attr("class", "text-center");
